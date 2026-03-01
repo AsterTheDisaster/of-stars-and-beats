@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://4qbpkksh6wba"]
+
+[ext_resource type="Texture2D" uid="uid://bp6mjm8a58tta" path="res://level0button.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://ctc6ikbmyd3p" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dg3bj0r3egusu" path="res://level0buttonhovered.png" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://3jjxe5wwvmme" path="res://level1button.png" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://bqgidm6c8b8bx" path="res://level1buttonhovered.png" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://daqabrs6s6wl4" path="res://helpme.png" id="4_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://gq53mw6swca1" path="res://helpme-hovered.png" id="5_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://csc7bt0eq6rrg" path="res://mainmenu.png" id="6_nlkkf"]
+[ext_resource type="FontFile" uid="uid://ds8ucuu4osgbl" path="res://aseprite.otf.woff2/aseprite.otf.woff2" id="7_qe12f"]
+
+[sub_resource type="Theme" id="Theme_nlkkf"]
+default_font = ExtResource("7_qe12f")
+
+[node name="MainMenu" type="Node2D" unique_id=673214916]
+script = ExtResource("1_fu7sn")
+
+[node name="LevelOneButton" type="TextureButton" parent="." unique_id=735657231]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 47.0
+offset_right = 64.0
+offset_bottom = 79.0
+grow_horizontal = 2
+texture_normal = ExtResource("2_glbon")
+texture_pressed = ExtResource("3_nlkkf")
+texture_hover = ExtResource("3_nlkkf")
+texture_disabled = ExtResource("2_glbon")
+texture_focused = ExtResource("3_nlkkf")
+
+[node name="InfoButton" type="TextureButton" parent="." unique_id=1190692660]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 91.0
+offset_right = 64.0
+offset_bottom = 123.0
+grow_horizontal = 2
+texture_normal = ExtResource("4_dy7ct")
+texture_pressed = ExtResource("5_0o4t1")
+texture_hover = ExtResource("5_0o4t1")
+texture_disabled = ExtResource("4_dy7ct")
+texture_focused = ExtResource("5_0o4t1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=187039256]
+
+[node name="LevelZeroButton" type="TextureButton" parent="." unique_id=26840134]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_7vrkn")
+texture_pressed = ExtResource("2_fu7sn")
+texture_hover = ExtResource("2_fu7sn")
+texture_disabled = ExtResource("1_7vrkn")
+texture_focused = ExtResource("2_fu7sn")
+
+[node name="Mainmenu" type="Sprite2D" parent="." unique_id=588094039]
+z_index = -3
+texture = ExtResource("6_nlkkf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=52282972]
+visible = false
+offset_left = -239.0
+offset_top = -134.0
+offset_right = -199.0
+offset_bottom = -94.0
+scale = Vector2(11.976922, 6.6977)
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=155987859]
+visible = false
+z_index = 3
+offset_left = -239.99998
+offset_top = -135.0
+offset_right = 240.00002
+offset_bottom = 135.0
+scale = Vector2(1, 0.9949919)
+theme = SubResource("Theme_nlkkf")
+text = "
+you are a SICK ROBOT infested with
+GROOVY SPACE FUNGUS
+
+MOVE TO THE BEAT with your ARROW KEYS
+
+don't fall into SPACE... you don't have a
+GROOVY PARACHUTE (yet)
+
+LEVEL 1 is SUPER HARD
+
+oh yeah, press ESCAPE to leave this menu"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="LevelOneButton" to="." method="_on_level_one_button_pressed"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="LevelZeroButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="LevelZeroButton" to="." method="_on_level_zero_button_pressed"]

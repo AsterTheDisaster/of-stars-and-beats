@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cgubpe2tpdoxw"]
+
+[ext_resource type="Script" uid="uid://b18vb5gi88gyp" path="res://death_screen.gd" id="1_f562y"]
+[ext_resource type="Texture2D" uid="uid://b1ycoy2i7mgu1" path="res://retrybutton.png" id="1_hhlqb"]
+[ext_resource type="Texture2D" uid="uid://da1wd21v2m7n0" path="res://retrybuttonhovered.png" id="2_f562y"]
+[ext_resource type="Texture2D" uid="uid://dyi36ukac484l" path="res://RAGEQUIT.png" id="3_s44ck"]
+[ext_resource type="Texture2D" uid="uid://d25ph0c18ve0b" path="res://RAGEQUIThovered.png" id="4_nus4h"]
+[ext_resource type="Texture2D" uid="uid://bp6vdmvxr8f2v" path="res://death.png" id="5_hhlqb"]
+
+[node name="DeathScreen" type="Node2D" unique_id=2118523182]
+script = ExtResource("1_f562y")
+
+[node name="RetryButton" type="TextureButton" parent="." unique_id=858899851]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 47.0
+offset_right = 64.0
+offset_bottom = 79.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_hhlqb")
+texture_pressed = ExtResource("2_f562y")
+texture_hover = ExtResource("2_f562y")
+texture_disabled = ExtResource("1_hhlqb")
+texture_focused = ExtResource("2_f562y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1622738164]
+
+[node name="RAGEQUIT" type="TextureButton" parent="." unique_id=1193888683]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture_normal = ExtResource("3_s44ck")
+texture_pressed = ExtResource("4_nus4h")
+texture_hover = ExtResource("4_nus4h")
+texture_disabled = ExtResource("3_s44ck")
+texture_focused = ExtResource("4_nus4h")
+
+[node name="YOUPERISHED" type="Sprite2D" parent="." unique_id=922834868]
+z_index = -3
+texture = ExtResource("5_hhlqb")
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="RAGEQUIT" to="." method="_on_ragequit_pressed"]

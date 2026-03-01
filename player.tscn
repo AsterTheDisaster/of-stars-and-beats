@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cwhlw143gkuvc"]
+
+[ext_resource type="Script" uid="uid://ih8wr6nvy2vm" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://xfr57qbrx2uk" path="res://naut.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(12, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}],
+"loop": true,
+"name": &"default_beat",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=2022597923]
+z_index = 10
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344469553]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1707354136]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1299222166]
+sprite_frames = SubResource("SpriteFrames_onrkg")
+animation = &"default_beat"
+frame_progress = 0.08277065
