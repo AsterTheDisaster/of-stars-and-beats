@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://da1w130ge5tlk"]
+
+[ext_resource type="Script" uid="uid://du1e86knpuycm" path="res://decorations/grass.gd" id="1_qscs3"]
+[ext_resource type="Texture2D" uid="uid://bffpxogau8fjq" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_transparent.png" id="2_832iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfgjg"]
+atlas = ExtResource("2_832iv")
+region = Rect2(272, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17fd3"]
+atlas = ExtResource("2_832iv")
+region = Rect2(289, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4a0l2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfgjg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17fd3")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Flowers" type="Node2D" unique_id=1337436213]
+script = ExtResource("1_qscs3")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=446425064]
+sprite_frames = SubResource("SpriteFrames_4a0l2")
+animation = &"new_animation"

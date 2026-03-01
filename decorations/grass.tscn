@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://7hsod1e3mnt2"]
+
+[ext_resource type="Texture2D" uid="uid://bffpxogau8fjq" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_transparent.png" id="1_kl2qe"]
+[ext_resource type="Script" uid="uid://du1e86knpuycm" path="res://decorations/grass.gd" id="2_mw2ei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw2ei"]
+atlas = ExtResource("1_kl2qe")
+region = Rect2(306, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qnaq"]
+atlas = ExtResource("1_kl2qe")
+region = Rect2(306, 17, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmnf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw2ei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qnaq")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Grass" type="Node2D" unique_id=1222220645]
+script = ExtResource("2_mw2ei")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=275989813]
+sprite_frames = SubResource("SpriteFrames_pmnf0")
+animation = &"new_animation"
